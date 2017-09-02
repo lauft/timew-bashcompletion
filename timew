@@ -1,0 +1,48 @@
+#
+# Bash completion for TimeWarrior
+#
+# Copyright (C) 2017  Thomas Lauf
+#
+_timew()
+{
+  local cur prev commands options
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  prev="${COMP_WORDS[COMP_CWORD-1]}"
+  cmd="${COMP_WORDS[1]}"
+  commands="cancel config continue day delete diagnostics export extensions gaps get help join lengthen month move report shorten show split start stop summary tag tags track untag week"
+  options="--help --verbose --version"
+  #
+  #  Complete the arguments to some of the basic commands.
+  #
+  case "${cmd}" in
+    continue|tag|untag)
+      if [ "${cur}" = "@" ] ; then
+        local ids="@1 @2 @3 @4 @5 @6 @7 @8 @9"
+        COMPREPLY=( $(compgen -W "${ids}" -- ${cur}) )
+        return 0
+      else
+        case "${prev}" in
+            @*)
+            local tags=$(timew tags | awk '{if(NR>3)print $1}')
+            COMPREPLY=( $(compgen -W "${tags}" -- ${cur}) )
+            return 0
+            ;;
+          *)
+            local ids="@1 @2 @3 @4 @5 @6 @7 @8 @9"
+            COMPREPLY=( $(compgen -W "${ids}" -- ${cur}) )
+            return 0
+            ;;
+        esac
+      fi
+      ;;
+    *)
+      COMPREPLY=( $(compgen -W "${commands}" -- ${cur}) )
+      return 0
+      ;;
+  esac
+
+ COMPREPLY=($(compgen -W "${commands}" -- ${cur}))   
+}
+
+complete -F _timew timew
