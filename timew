@@ -55,7 +55,7 @@ function _timew()
     cancel|config|diagnostics|day|extensions|month|week)
       wordlist=""
       ;;
-    continue)
+    continue|delete|join|lengthen|move|shorten|split)
       wordlist=$( __get_ids )
       ;;
     tag|untag)
