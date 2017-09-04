@@ -58,7 +58,7 @@ function _timew()
     continue|delete|join|lengthen|move|shorten|split)
       wordlist=$( __get_ids )
       ;;
-    start|stop|tags|track)
+    export|start|stop|tags|track)
       wordlist=$( __get_tags )
       ;;
     tag|untag)
