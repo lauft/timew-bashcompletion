@@ -15,7 +15,7 @@ function __get_options()
 
 function __get_ids()
 {
-  seq -f "@%g" 1 $( timew get dom.tracked.count )
+  seq -f "@%g" 1 "$( timew get dom.tracked.count )"
 }
 
 function __get_tags()
@@ -50,10 +50,9 @@ function __is_entering_id()
 
 function _timew()
 {
-  local cur prev first
+  local cur first
   COMPREPLY=()
   cur="${COMP_WORDS[COMP_CWORD]}"
-  prev="${COMP_WORDS[COMP_CWORD-1]}"
   first="${COMP_WORDS[1]}"
 
   case "${first}" in
@@ -89,7 +88,7 @@ function _timew()
       ;;
   esac
 
- COMPREPLY=($(compgen -W "${wordlist}" -- "${cur}"))
+  COMPREPLY=($( compgen -W "${wordlist}" -- "${cur}" ))
 }
 
 complete -F _timew timew
