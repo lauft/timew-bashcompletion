@@ -76,7 +76,7 @@ function _timew()
       fi
       ;;
     report)
-      wordlist=$(  __get_extensions )
+      wordlist=$( __get_extensions )
       ;;
     help)
       wordlist="$( __get_commands ) interval hints date duration dom"
