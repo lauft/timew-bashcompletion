@@ -36,7 +36,7 @@ function __has_entered_id()
 
 function __is_entering_id()
 {
-  if [[ "${COMP_WORDS[COMP_CWORD]}" =~ "@[0-9]*" ]] ; then
+  if [[ "${COMP_WORDS[COMP_CWORD]}" =~ @[0-9]* ]] ; then
     return 0
   else
     return 1
