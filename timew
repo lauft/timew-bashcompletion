@@ -34,6 +34,15 @@ function __has_entered_id()
   return 1
 }
 
+function __is_entering_id()
+{
+  if [[ "${COMP_WORDS[COMP_CWORD]}" =~ "@[0-9]*" ]] ; then
+    return 0
+  else
+    return 1
+  fi
+}
+
 function _timew()
 {
   local cur prev first
@@ -41,12 +50,10 @@ function _timew()
   cur="${COMP_WORDS[COMP_CWORD]}"
   prev="${COMP_WORDS[COMP_CWORD-1]}"
   first="${COMP_WORDS[1]}"
-  #
-  #  Complete the arguments to some of the basic commands.
-  #
+
   case "${first}" in
     continue|tag|untag)
-      if [ "${cur}" = "@" ] ; then
+      if __is_entering_id ; then
         wordlist=$( __get_ids )
       elif __has_entered_id ; then
         wordlist=$( __get_tags )
