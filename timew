@@ -23,6 +23,17 @@ function __get_tags()
   timew tags | awk '{if(NR>3)print $1}'
 }
 
+function __has_entered_id()
+{
+  for word in "${COMP_WORDS[@]}" ; do
+    if [[ "${word}" =~ ^@ ]] ; then
+      return 0
+    fi
+  done
+
+  return 1
+}
+
 function _timew()
 {
   local cur prev first
@@ -37,15 +48,10 @@ function _timew()
     continue|tag|untag)
       if [ "${cur}" = "@" ] ; then
         wordlist=$( __get_ids )
+      elif __has_entered_id ; then
+        wordlist=$( __get_tags )
       else
-        case "${prev}" in
-          @*)
-            wordlist=$( __get_tags )
-            ;;
-          *)
-            wordlist=$( __get_ids )
-            ;;
-        esac
+        wordlist=$( __get_ids )
       fi
       ;;
     --*)
