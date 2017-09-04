@@ -30,8 +30,8 @@ Alternatively you can source the completion script in your current shell.
 Type a (partial) TimeWarrior command and hit `[TAB][TAB]`
 
 List available commands:
-```bash
-timew[TAB][TAB]
+```
+$> timew[TAB][TAB]
 cancel       diagnostics  help         report       stop         untag
 config       export       join         shorten      summary      week
 continue     extensions   lengthen     show         tag
@@ -40,20 +40,20 @@ delete       get          move         start        track
 ```
 
 Complete a partial command:
-```bash
-timew st[TAB][TAB]
+```
+$> timew st[TAB][TAB]
 start  stop
 ```
 
 For `timew tag` you can get a list of available tags after entering an id:
-```bash
-timew tag @2 [TAB][TAB]
+```
+$> timew tag @2 [TAB][TAB]
 TAG1    TAG2    TAG3
 ```
 
 ## Limits
 
-Currently not all commands are (fully) supported - work in progress!
+Currently not all commands are fully supported - work in progress!
 
 ## License
 
