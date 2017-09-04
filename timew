@@ -52,6 +52,9 @@ function _timew()
   first="${COMP_WORDS[1]}"
 
   case "${first}" in
+    cancel|config|diagnostics|day|extensions|month|week)
+      wordlist=""
+      ;;
     continue)
       wordlist=$( __get_ids )
       ;;
