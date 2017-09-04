@@ -3,6 +3,11 @@
 #
 # Copyright (C) 2017  Thomas Lauf
 #
+function __get_commands()
+{
+  echo "cancel config continue day delete diagnostics export extensions gaps get help join lengthen month move report shorten show split start stop summary tag tags track untag week"
+}
+
 function __get_options()
 {
   echo "--help --verbose --version"
@@ -20,12 +25,11 @@ function __get_tags()
 
 function _timew()
 {
-  local cur prev commands options
+  local cur prev first
   COMPREPLY=()
   cur="${COMP_WORDS[COMP_CWORD]}"
   prev="${COMP_WORDS[COMP_CWORD-1]}"
   first="${COMP_WORDS[1]}"
-  commands="cancel config continue day delete diagnostics export extensions gaps get help join lengthen month move report shorten show split start stop summary tag tags track untag week"
   #
   #  Complete the arguments to some of the basic commands.
   #
@@ -48,8 +52,7 @@ function _timew()
       wordlist=$( __get_options )
       ;;
     *)
-      COMPREPLY=( $(compgen -W "${commands}" -- "${cur}") )
-      return 0
+      wordlist=$( __get_commands )
       ;;
   esac
 
