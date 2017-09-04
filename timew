@@ -23,6 +23,11 @@ function __get_tags()
   timew tags | awk '{if(NR>3)print $1}'
 }
 
+function __get_extensions()
+{
+  timew extensions | awk '{if(NR>6)print $1}'
+}
+
 function __has_entered_id()
 {
   for word in "${COMP_WORDS[@]}" ; do
@@ -69,6 +74,9 @@ function _timew()
       else
         wordlist=$( __get_ids )
       fi
+      ;;
+    report)
+      wordlist=$(  __get_extensions )
       ;;
     help)
       wordlist="$( __get_commands ) interval hints date duration dom"
