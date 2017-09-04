@@ -52,7 +52,10 @@ function _timew()
   first="${COMP_WORDS[1]}"
 
   case "${first}" in
-    continue|tag|untag)
+    continue)
+      wordlist=$( __get_ids )
+      ;;
+    tag|untag)
       if __is_entering_id ; then
         wordlist=$( __get_ids )
       elif __has_entered_id ; then
