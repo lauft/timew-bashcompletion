@@ -19,30 +19,31 @@ _timew()
     continue|tag|untag)
       if [ "${cur}" = "@" ] ; then
         local ids="@1 @2 @3 @4 @5 @6 @7 @8 @9"
-        COMPREPLY=( $(compgen -W "${ids}" -- ${cur}) )
+        COMPREPLY=( $(compgen -W "${ids}" -- "${cur}") )
         return 0
       else
         case "${prev}" in
-            @*)
-            local tags=$(timew tags | awk '{if(NR>3)print $1}')
-            COMPREPLY=( $(compgen -W "${tags}" -- ${cur}) )
+          @*)
+            local tags
+            tags=$(timew tags | awk '{if(NR>3)print $1}')
+            COMPREPLY=( $(compgen -W "${tags}" -- "${cur}") )
             return 0
             ;;
           *)
             local ids="@1 @2 @3 @4 @5 @6 @7 @8 @9"
-            COMPREPLY=( $(compgen -W "${ids}" -- ${cur}) )
+            COMPREPLY=( $(compgen -W "${ids}" -- "${cur}") )
             return 0
             ;;
         esac
       fi
       ;;
     *)
-      COMPREPLY=( $(compgen -W "${commands}" -- ${cur}) )
+      COMPREPLY=( $(compgen -W "${commands}" -- "${cur}") )
       return 0
       ;;
   esac
 
- COMPREPLY=($(compgen -W "${commands}" -- ${cur}))   
+ COMPREPLY=($(compgen -W "${commands}" -- "${cur}"))
 }
 
 complete -F _timew timew
