@@ -15,7 +15,7 @@ function __get_options()
 
 function __get_ids()
 {
-  echo "@1 @2 @3 @4 @5 @6 @7 @8 @9"
+  seq -f "@%g" 1 $( timew get dom.tracked.count )
 }
 
 function __get_tags()
