@@ -58,6 +58,9 @@ function _timew()
     continue|delete|join|lengthen|move|shorten|split)
       wordlist=$( __get_ids )
       ;;
+    start|stop)
+      wordlist=$( __get_tags )
+      ;;
     tag|untag)
       if __is_entering_id ; then
         wordlist=$( __get_ids )
