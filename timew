@@ -57,7 +57,7 @@ function _timew()
   first="${COMP_WORDS[1]}"
 
   case "${first}" in
-    cancel|config|diagnostics|day|extensions|month|show|week)
+    cancel|config|diagnostics|day|extensions|get|month|show|week)
       wordlist=""
       ;;
     continue|delete|join|lengthen|move|shorten|split)
