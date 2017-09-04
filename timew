@@ -8,6 +8,16 @@ function __get_options()
   echo "--help --verbose --version"
 }
 
+function __get_ids()
+{
+  echo "@1 @2 @3 @4 @5 @6 @7 @8 @9"
+}
+
+function __get_tags()
+{
+  timew tags | awk '{if(NR>3)print $1}'
+}
+
 function _timew()
 {
   local cur prev commands options
@@ -22,21 +32,14 @@ function _timew()
   case "${first}" in
     continue|tag|untag)
       if [ "${cur}" = "@" ] ; then
-        local ids="@1 @2 @3 @4 @5 @6 @7 @8 @9"
-        COMPREPLY=( $(compgen -W "${ids}" -- "${cur}") )
-        return 0
+        wordlist=$( __get_ids )
       else
         case "${prev}" in
           @*)
-            local tags
-            tags=$(timew tags | awk '{if(NR>3)print $1}')
-            COMPREPLY=( $(compgen -W "${tags}" -- "${cur}") )
-            return 0
+            wordlist=$( __get_tags )
             ;;
           *)
-            local ids="@1 @2 @3 @4 @5 @6 @7 @8 @9"
-            COMPREPLY=( $(compgen -W "${ids}" -- "${cur}") )
-            return 0
+            wordlist=$( __get_ids )
             ;;
         esac
       fi
