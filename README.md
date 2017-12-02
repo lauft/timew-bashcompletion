@@ -5,7 +5,7 @@ Bash completion for [TimeWarrior](https://www.timewarrior.net)
 ## Installation
 
 1. Clone the repository.
-1. Copy or link the bash script to he appropriate place.
+1. Copy or link the bash script to the appropriate place.
 
 ### Clone the repository
 
