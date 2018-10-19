@@ -2,11 +2,11 @@
 #
 # Bash completion for TimeWarrior
 #
-# Copyright (C) 2017  Thomas Lauf
+# Copyright (C) 2017 - 2018  Thomas Lauf
 #
 function __get_commands()
 {
-  echo "cancel config continue day delete diagnostics export extensions gaps get help join lengthen month move report shorten show split start stop summary tag tags track untag week"
+  echo "annotate cancel config continue day delete diagnostics export extensions gaps get help join lengthen month move report shorten show split start stop summary tag tags track undo untag week"
 }
 
 function __get_options()
@@ -57,10 +57,10 @@ function _timew()
   first="${COMP_WORDS[1]}"
 
   case "${first}" in
-    cancel|config|diagnostics|day|extensions|get|month|show|week)
+    cancel|config|diagnostics|day|extensions|get|month|show|undo|week)
       wordlist=""
       ;;
-    continue|delete|join|lengthen|move|shorten|split)
+    annotate|continue|delete|join|lengthen|move|shorten|split)
       wordlist=$( __get_ids )
       ;;
     export|gaps|start|stop|summary|tags|track)
