@@ -59,7 +59,7 @@ function __has_entered_id()
 
 function __has_entered_subcommand()
 {
-  subcommands=$( __get_subcommands "${1}" )
+  local subcommands=$( __get_subcommands "${1}" )
 
   for word in "${COMP_WORDS[@]}" ; do
     for cmd in ${subcommands} ; do
