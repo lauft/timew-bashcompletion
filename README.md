@@ -57,4 +57,4 @@ Currently not all commands are fully supported - work in progress!
 
 ## License
 
-This work is licensed under the [MIT licence](http://opensource.org/licenses/MIT).
+This work is licensed under the [MIT licence](https://opensource.org/licenses/MIT).
