@@ -18,7 +18,7 @@ function __get_subcommands()
     *)
       echo ""
       ;;
-    esac
+  esac
 }
 
 function __get_help_items()
