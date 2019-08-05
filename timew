@@ -6,7 +6,19 @@
 #
 function __get_commands()
 {
-  echo "annotate cancel config continue day delete diagnostics export extensions gaps get help join lengthen month move report shorten show split start stop summary tag tags track undo untag week"
+  echo "annotate cancel config continue day delete diagnostics export extensions gaps get help join lengthen modify month move report shorten show split start stop summary tag tags track undo untag week"
+}
+
+function __get_subcommands()
+{
+  case "${1}" in
+    modify)
+      echo "end start"
+      ;;
+    *)
+      echo ""
+      ;;
+    esac
 }
 
 function __get_options()
@@ -40,6 +52,21 @@ function __has_entered_id()
   return 1
 }
 
+function __has_entered_subcommand()
+{
+  subcommands=$( __get_subcommands "${1}" )
+
+  for word in "${COMP_WORDS[@]}" ; do
+    for cmd in ${subcommands} ; do
+      if [[ "${word}" == "${cmd}" ]] ; then
+        return 0
+      fi
+    done
+  done
+
+  return 1
+}
+
 function __is_entering_id()
 {
   if [[ "${COMP_WORDS[COMP_CWORD]}" =~ @[0-9]* ]] ; then
@@ -65,6 +92,13 @@ function _timew()
       ;;
     export|gaps|start|stop|summary|tags|track)
       wordlist=$( __get_tags )
+      ;;
+    modify)
+      if __has_entered_subcommand "${first}" ; then
+        wordlist=$( __get_ids )
+      else
+        wordlist=$( __get_subcommands "${first}" )
+      fi
       ;;
     tag|untag)
       if __is_entering_id ; then
