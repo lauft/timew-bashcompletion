@@ -21,6 +21,11 @@ function __get_subcommands()
     esac
 }
 
+function __get_help_items()
+{
+  echo "$( __get_commands ) interval hints date duration dom"
+}
+
 function __get_options()
 {
   echo "--help --verbose --version"
@@ -59,6 +64,21 @@ function __has_entered_subcommand()
   for word in "${COMP_WORDS[@]}" ; do
     for cmd in ${subcommands} ; do
       if [[ "${word}" == "${cmd}" ]] ; then
+        return 0
+      fi
+    done
+  done
+
+  return 1
+}
+
+function __has_entered_help_item()
+{
+  local items=$( __get_help_items )
+
+  for word in "${COMP_WORDS[@]:2}" ; do
+    for item in ${items} ; do
+      if [[ "${word}" == "${item}" ]] ; then
         return 0
       fi
     done
@@ -113,7 +133,11 @@ function _timew()
       wordlist=$( __get_extensions )
       ;;
     help)
-      wordlist="$( __get_commands ) interval hints date duration dom"
+      if __has_entered_help_item ; then
+        wordlist=""
+      else
+        wordlist=$( __get_help_items )
+      fi
       ;;
     --*)
       wordlist=$( __get_options )
