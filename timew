@@ -6,14 +6,14 @@
 #
 function __get_commands()
 {
-  echo "annotate cancel config continue day delete diagnostics export extensions gaps get help join lengthen modify month move report shorten show split start stop summary tag tags track undo untag week" | tr ' ' '\n'
+  echo "annotate cancel config continue day delete diagnostics export extensions gaps get help join lengthen modify month move report shorten show split start stop summary tag tags track undo untag week"
 }
 
 function __get_subcommands()
 {
   case "${1}" in
     modify)
-      echo -e "end\nstart"
+      echo -e "end start"
       ;;
     *)
       echo ""
@@ -23,12 +23,12 @@ function __get_subcommands()
 
 function __get_help_items()
 {
-  echo -e "$( __get_commands )\ninterval\nhints\ndate\nduration\ndom"
+  echo -e "$( __get_commands ) interval hints date duration dom"
 }
 
 function __get_options()
 {
-  echo -e "--help\n--verbose\n--version"
+  echo -e "--help --verbose --version"
 }
 
 function __get_ids()
@@ -99,6 +99,8 @@ function __is_entering_id()
 function _timew()
 {
   local cur first
+  local separator=" "
+
   COMPREPLY=()
   cur="${COMP_WORDS[COMP_CWORD]}"
   first="${COMP_WORDS[1]}"
@@ -112,6 +114,7 @@ function _timew()
       ;;
     export|gaps|start|stop|summary|tags|track)
       wordlist=$( __get_tags )
+      separator=$'\n'
       ;;
     modify)
       if __has_entered_subcommand "${first}" ; then
@@ -147,7 +150,7 @@ function _timew()
       ;;
   esac
 
-  IFS=$'\n' COMPREPLY=($( compgen -W "${wordlist}" -- "${cur}" ))
+  COMPREPLY=($( IFS="${separator}" compgen -W "${wordlist}" -- "${cur}" ))
 }
 
 complete -F _timew timew
