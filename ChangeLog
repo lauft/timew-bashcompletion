@@ -1,3 +1,6 @@
+- #2 Add support for tags with spaces
+     (thanks to Alexander Andreyev)
+
 1.2.0 (2019-11-22) d6595cf7d1f8398c61dc0c4c304150d846eb767b
 
 - Optimize support for command 'help'
