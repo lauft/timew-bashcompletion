@@ -1,0 +1,22 @@
+1.2.0 (2019-11-22) d6595cf7d1f8398c61dc0c4c304150d846eb767b
+
+- Optimize support for command 'help'
+- Add command 'modify'
+- Add commands 'annotate' and 'undo', update copyright
+
+1.1.1 (2017-12-03) 2c45ce1921e295fb67b8983bd361e542eded61c6
+
+- Minor README update
+- Command completion for commands "gaps", "summary"
+- Command completion for command "get"
+- Command completion for command "report"
+- Completion for command export
+- Completion for commands tags, track
+- Completion for command show
+- Completion for commands start, stop
+- Completion for commands delete, join, lengthen, move, shorten, split
+- Completion for commands cancel, config, diagnostics, day, extensions, month, week
+- Specify completion for command "continue"
+- Completion for command "help"
+- Add support for TimeWarrior options
+- Initial commit
