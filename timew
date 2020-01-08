@@ -150,7 +150,7 @@ function _timew()
       ;;
   esac
 
-  COMPREPLY=($( IFS="${separator}" compgen -W "${wordlist}" -- "${cur}" ))
+  IFS=$'\n' COMPREPLY=($( IFS="${separator}" compgen -W "${wordlist}" -- "${cur}" ))
 }
 
 complete -F _timew timew
