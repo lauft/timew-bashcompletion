@@ -6,7 +6,7 @@
 #
 function __get_commands()
 {
-  echo "annotate cancel config continue day delete diagnostics export extensions gaps get help join lengthen modify month move report shorten show split start stop summary tag tags track undo untag week"
+  echo "annotate cancel config continue day delete diagnostics export extensions gaps get help join lengthen modify month move report resize shorten show split start stop summary tag tags track undo untag week"
 }
 
 function __get_subcommands()
@@ -109,7 +109,7 @@ function _timew()
     cancel|config|diagnostics|day|extensions|get|month|show|undo|week)
       wordlist=""
       ;;
-    annotate|continue|delete|join|lengthen|move|shorten|split)
+    annotate|continue|delete|join|lengthen|move|resize|shorten|split)
       wordlist=$( __get_ids )
       ;;
     export|gaps|start|stop|summary|tags|track)
