@@ -1,5 +1,9 @@
 1.3.0 (2020-04-13) 0562e8b8d1e8be99495e5cc2d51c62c628f463e9
 
+- #6 Add command 'resize' to bash completion
+     (thanks to Clément Hermann)
+- #5 Remove useless shebang
+     (thanks to Clément Hermann)
 - Complete options from the first entered hyphen
 - Fix completion of ids
 - #2 Add support for tags with spaces
