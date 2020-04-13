@@ -1,3 +1,4 @@
+- Fix completion of ids
 - #2 Add support for tags with spaces
      (thanks to Alexander Andreyev)
 
