@@ -1,5 +1,7 @@
 1.3.0 (2020-04-13) 0562e8b8d1e8be99495e5cc2d51c62c628f463e9
 
+- #7 Fix repository address in README.md
+     (thanks to johanna-a)
 - #6 Add command 'resize' to bash completion
      (thanks to Clément Hermann)
 - #5 Remove useless shebang

@@ -10,7 +10,7 @@ Bash completion for [TimeWarrior](https://www.timewarrior.net)
 ### Clone the repository
 
 ```
-$ git clone https://github.com/lauft/timew_bashcompletion.git
+$ git clone https://github.com/lauft/timew-bashcompletion.git
 ```
 
 ### Copy/link the Bash script
