@@ -55,7 +55,7 @@ function __get_extensions()
 function __has_entered_id()
 {
   for word in "${COMP_WORDS[@]}" ; do
-    if [[ "${word}" =~ ^@ ]] ; then
+    if [[ "${word}" =~ ^@[0-9] ]] ; then
       return 0
     fi
   done
