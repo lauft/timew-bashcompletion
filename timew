@@ -33,7 +33,13 @@ function __get_options()
 
 function __get_ids()
 {
-  seq -f "@%g" 1 "$( timew get dom.tracked.count )"
+  local count
+  count="$( timew get dom.tracked.count )"
+  if [[ "${count}" -eq "0" ]] ; then
+    echo ""
+  else
+    seq -f "@%g" 1 "${count}"
+  fi
 }
 
 function __get_tags()
