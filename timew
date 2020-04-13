@@ -169,7 +169,7 @@ function _timew()
         wordlist=$( __get_help_items )
       fi
       ;;
-    --*)
+    -*)
       wordlist=$( __get_options )
       ;;
     *)
