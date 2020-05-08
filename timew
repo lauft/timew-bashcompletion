@@ -42,7 +42,7 @@ function __get_ids()
 
 function __get_tags()
 {
-  timew tags | tail -n +4 -- | sed -e "s|[[:space:]]*-$||"
+  timew tags | tail -n +4 -- | sed -e "s|[[:space:]]*-.*||"
 }
 
 function __get_extensions()
