@@ -4,7 +4,7 @@
 #
 function __get_commands()
 {
-  echo "annotate cancel config continue day delete diagnostics export extensions gaps get help join lengthen modify month move report resize shorten show split start stop summary tag tags track undo untag week"
+  echo "annotate cancel config continue day delete diagnostics export extensions gaps get help join lengthen modify month move report resize retag shorten show split start stop summary tag tags track undo untag week"
 }
 
 function __get_subcommands()
