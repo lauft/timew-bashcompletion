@@ -63,7 +63,8 @@ function __has_entered_id()
 
 function __has_entered_subcommand()
 {
-  local subcommands=$( __get_subcommands "${1}" )
+  local subcommands
+  subcommands=$( __get_subcommands "${1}" )
 
   for word in "${COMP_WORDS[@]}" ; do
     for cmd in ${subcommands} ; do
@@ -78,7 +79,8 @@ function __has_entered_subcommand()
 
 function __has_entered_help_item()
 {
-  local items=$( __get_help_items )
+  local items
+  items=$( __get_help_items )
 
   for word in "${COMP_WORDS[@]:2}" ; do
     for item in ${items} ; do
@@ -175,7 +177,7 @@ function _timew()
       ;;
   esac
 
-  COMPREPLY=($( compgen -W "${wordlist}" -- "${cur}" ))
+  COMPREPLY=( $( compgen -W "${wordlist}" -- "${cur}" ) )
 }
 
 complete -F _timew timew
