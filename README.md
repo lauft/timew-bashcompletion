@@ -51,6 +51,15 @@ $> timew tag @2 [TAB][TAB]
 TAG1    TAG2    TAG3
 ```
 
+## Environment variables
+
+With increasing size of your Timewarrior database the number of tags can also get quite large.
+In consequence, the completion of tags can become quite slow.
+
+With the environment variable `TIMEW_COMPLETION_TAGS_RANGE`, you can set a search range for your tags, e.g. `4w` for the last 4 weeks.
+The default is `:all` for the complete database.
+See `timew help ranges` and `timew help hints` for details on that.
+
 ## Limits
 
 Currently not all commands are fully supported - work in progress!

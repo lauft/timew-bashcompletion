@@ -1,3 +1,4 @@
+- #3 Use DOM-Query for tags
 - Add command 'retag' to bash completion
 
 1.3.0 (2020-04-13) 90b67068aaae6eca7b0a3b84e6c34f08f2bfd092
