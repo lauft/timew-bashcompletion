@@ -1,6 +1,6 @@
 # timew-bashcompletion
 
-Bash completion for [TimeWarrior](https://www.timewarrior.net)
+Bash completion for [Timewarrior](https://www.timewarrior.net)
 
 ## Installation
 
@@ -27,7 +27,7 @@ Alternatively you can source the completion script in your current shell.
 
 ## Usage
 
-Type a (partial) TimeWarrior command and hit `[TAB][TAB]`
+Type a (partial) Timewarrior command and hit `[TAB][TAB]`
 
 List available commands:
 ```
