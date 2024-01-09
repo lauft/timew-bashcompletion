@@ -42,7 +42,7 @@ function __get_ids()
 
 function __get_tags()
 {
-  timew get dom.tracked.tags "${TIMEW_COMPLETION_TAGS_RANGE:-":all"}"
+  timew get dom.tracked.tags "${TIMEW_COMPLETION_TAGS_RANGE:-":all"}" | tr ' ' '\n'
 }
 
 function __get_extensions()
